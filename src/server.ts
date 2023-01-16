@@ -126,7 +126,6 @@ app.put('/videos/:id', (req: Request, res: Response) => {
         return errors.push({message: ERRORS_MESSAGES.publicationDate_messages, field: ERRORS_MESSAGES.publicationDate_field})}
     if (errors.length > 0) {return res.status(STATUS.BAD_REQUEST_400).send({errorsMessages: errors})}
 
-
     let updateVideo = videosDb.find(v => v.id === +req.params.id);
     return updateVideo
         ?  (updateVideo.title = title,
