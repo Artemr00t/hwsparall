@@ -99,7 +99,7 @@ app.post('/videos', (req: Request, res: Response) => {
     res.status(STATUS.CREATE_201).send(createNewVideo)
 })
 app.put('/videos/:id', (req: Request, res: Response) => {
-    let title = req.body.title;
+    const title = req.body.title;
     const author = req.body.author;
     const availableResolutions = req.body.availableResolutions;
     const canBeDownloaded = req.body.canBeDownloaded;
@@ -119,7 +119,7 @@ app.put('/videos/:id', (req: Request, res: Response) => {
         }
     }
     if (validateNotBoolean(canBeDownloaded)) {
-        return errors.push({message: ERRORS_MESSAGES.canBeDownloaded_messages, field: ERRORS_MESSAGES.canBeDownloaded_field})}
+        errors.push({message: ERRORS_MESSAGES.canBeDownloaded_messages, field: ERRORS_MESSAGES.canBeDownloaded_field})}
     if (validateAge(minAgeRestriction)) {
         return errors.push({message: ERRORS_MESSAGES.minAgeRestriction_messages, field: ERRORS_MESSAGES.minAgeRestriction_field})}
     if (validateNotDate(publicationDate)) {
