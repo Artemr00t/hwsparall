@@ -73,7 +73,7 @@ app.post('/videos', (req: Request, res: Response) => {
         errors.push({message: ERRORS_MESSAGES.title_messages, field: ERRORS_MESSAGES.title_field})
     }
     if (validateString(author, 20)){
-        errors.push({message: ERRORS_MESSAGES.title_messages, field: ERRORS_MESSAGES.title_field})
+        errors.push({message: ERRORS_MESSAGES.author_messages, field: ERRORS_MESSAGES.author_field})
     }
     for (const i in availableResolutions) {
         if (availableResolutions[i].length > 5){
