@@ -121,9 +121,9 @@ app.put('/videos/:id', (req: Request, res: Response) => {
     if (validateNotBoolean(canBeDownloaded)) {
         errors.push({message: ERRORS_MESSAGES.canBeDownloaded_messages, field: ERRORS_MESSAGES.canBeDownloaded_field})}
     if (validateAge(minAgeRestriction)) {
-        return errors.push({message: ERRORS_MESSAGES.minAgeRestriction_messages, field: ERRORS_MESSAGES.minAgeRestriction_field})}
+        errors.push({message: ERRORS_MESSAGES.minAgeRestriction_messages, field: ERRORS_MESSAGES.minAgeRestriction_field})}
     if (validateNotDate(publicationDate)) {
-        return errors.push({message: ERRORS_MESSAGES.publicationDate_messages, field: ERRORS_MESSAGES.publicationDate_field})}
+        errors.push({message: ERRORS_MESSAGES.publicationDate_messages, field: ERRORS_MESSAGES.publicationDate_field})}
     if (errors.length > 0) {return res.status(STATUS.BAD_REQUEST_400).send({errorsMessages: errors})}
 
     let updateVideo = videosDb.find(v => v.id === +req.params.id);
