@@ -118,6 +118,7 @@ app.put('/videos/:id', (req: Request, res: Response) => {
             errors.push({message: ERRORS_MESSAGES.availableResolutions_message, field: ERRORS_MESSAGES.availableResolutions_field})
         }
     }
+    //chlen
     if (validateNotBoolean(canBeDownloaded)) {
         errors.push({message: ERRORS_MESSAGES.canBeDownloaded_message, field: ERRORS_MESSAGES.canBeDownloaded_field})}
     if (validateAge(minAgeRestriction)) {
