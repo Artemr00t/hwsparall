@@ -21,7 +21,7 @@ enum ERRORS_MESSAGES {
     author_messages = 'Invalid author',
     author_field = 'author',
 
-    availableResolutions_messages = 'Invalid availableResolutions',
+    availableResolutions_message = 'Invalid availableResolutions',
     availableResolutions_field = 'availableResolutions',
 
     canBeDownloaded_messages = 'Invalid canBeDownloaded',
@@ -77,7 +77,7 @@ app.post('/videos', (req: Request, res: Response) => {
     }
     for (const i in availableResolutions) {
         if (availableResolutions[i].length > 5){
-            errors.push({message: ERRORS_MESSAGES.availableResolutions_messages, field: ERRORS_MESSAGES.availableResolutions_field})
+            errors.push({message: ERRORS_MESSAGES.availableResolutions_message, field: ERRORS_MESSAGES.availableResolutions_field})
         }
     }
     if (errors.length > 0) {
@@ -115,7 +115,7 @@ app.put('/videos/:id', (req: Request, res: Response) => {
     }
     for (const i in availableResolutions) {
         if (availableResolutions[i].length > 5){
-            errors.push({message: ERRORS_MESSAGES.availableResolutions_messages, field: ERRORS_MESSAGES.availableResolutions_field})
+            errors.push({message: ERRORS_MESSAGES.availableResolutions_message, field: ERRORS_MESSAGES.availableResolutions_field})
         }
     }
     if (validateNotBoolean(canBeDownloaded)) {
